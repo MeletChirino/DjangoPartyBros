@@ -1,0 +1,3 @@
+[submodule "apps/RoyalArgmaPartyBros"]
+	path = apps/RoyalArgmaPartyBros
+	url = git@github.com:MeletChirino/RoyalArgmaPartyBros.git
