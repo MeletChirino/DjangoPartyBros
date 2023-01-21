@@ -26,7 +26,10 @@ SECRET_KEY = 'django-insecure-+r(_t+e*-$78n0p1^9ca0+z28id=$f7=0q0*+qumiqn7mw9ocl
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '192.168.1.41'
+]
 
 
 # Application definition
@@ -135,8 +138,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static")
+    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "apps", "RoyalArgmaPartyBros", "game_elements", "img")
 ]
 LOGIN_URL = "login"
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'apps', 'RoyalArgmaPartyBros', 'game_elements', 'img')
+MEDIA_URL = '/apps/RoyalArgmaPartyBros/game_elements/img/'

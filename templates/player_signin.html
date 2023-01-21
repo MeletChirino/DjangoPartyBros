@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Royal Argma Party Bros</title>
+<title>Player sign in</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -24,7 +24,7 @@ body, html {height: 100%}
     <p>logo</p>
   </div>
   <div class="w3-display-topleft w3-container w3-xlarge">
-    <p><button onclick="document.getElementById('start-game').style.display='block'" class="w3-button w3-black">Start Game</button></p>
+    <p><button onclick="document.getElementById('start-game').style.display='block'" class="w3-button w3-black">Log in</button></p>
   </div>
   <div class="w3-display-bottomleft w3-container">
     <p class="w3-xlarge">Are you ready to loose your friends and dignity?</p>
@@ -38,19 +38,22 @@ body, html {height: 100%}
   <div class="w3-modal-content w3-animate-zoom">
     <div class="w3-container w3-black">
       <span onclick="document.getElementById('start-game').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
-      <h1>Start Game</h1>
+      <h1>Sign in as player</h1>
     </div>
     <div class="w3-container">
       <p>Please fill next form to start a game:</p>
-      <form action="{% url 'home' %}" method="POST">
+      <form action="{% url 'inscription' %}" method="POST">
         {% csrf_token %}
-        Select Board:
-        <p> <select name='board' class="w3-input w3-padding-16 w3-border" type="text">
-            {% for board in boards %}
-            <option value="{{board}}">{{board}}</option>
-            {% endfor%}
-        </select></p>
-        <p><button class="w3-button" type="submit">SATRT GAME</button></p>
+        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Player Name" required name="name"></p>
+        <p><button class="w3-button" type="submit">SIGN UP</button></p>
+        {% for avatar in av_list %}
+          <input required type="radio" id="{{avatar.0}}" name="av_name" value="{{avatar.0}}">
+          <label for="{{avatar.0}}">{{avatar.0}} </label>
+          <img src="/apps/RoyalArgmaPartyBros/game_elements/img/characters/{{avatar.1}}" alt="{{avatar.0}}" width="40" height="40">
+          <br>
+        {% endfor %}
+        
+    
       </form>
     </div>
   </div>
